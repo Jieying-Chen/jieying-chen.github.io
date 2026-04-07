@@ -25,14 +25,18 @@ body {
 }
 
 .header-content {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px 40px;
+    align-items: center;
 }
 
-.profile-section {
-    flex-shrink: 0;
-    text-align: center;
+.profile-top {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    grid-column: 1 / -1;
+    width: 100%;
 }
 
 .profile-photo {
@@ -42,19 +46,43 @@ body {
     border: 3px solid #1a365d;
     object-fit: cover;
     transition: transform 0.3s ease;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    margin-left: 128px;
 }
 
 .profile-photo:hover {
     transform: scale(1.05);
 }
 
-.research-intro {
+.profile-section {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-text {
+    margin-top: 14px;
+}
+
+.research-intro {
+    grid-column: 1 / -1;
     color: #444;
     font-size: 1.05em;
     line-height: 1.8;
-    padding-top: 10px;
+    padding-top: 0;
+    margin-top: 34px;
+}
+
+.research-intro a {
+    color: inherit;
+    text-decoration-color: currentColor;
+    text-underline-offset: 2px;
+}
+
+.research-intro a:hover {
+    color: #1a365d;
 }
 
 .research-intro p {
@@ -83,8 +111,7 @@ h1 {
 .social-links {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 15px;
     justify-content: center;
 }
 
@@ -222,14 +249,28 @@ h1 {
     }
 
     .header-content {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-top {
         flex-direction: column;
         align-items: center;
+        grid-column: auto;
+        gap: 20px;
+    }
+
+    .research-intro {
+        margin-top: 24px;
+    }
+
+    .profile-section {
+        text-align: center;
     }
 
     .profile-photo {
         width: 160px;
         height: 160px;
-        margin-bottom: 20px;
+        margin-left: 0;
     }
 
     .social-links {
